@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Percentage Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      width: 350px;
+      text-align: center;
+      transition: transform 0.2s ease-in-out;
+    }
+    .container:hover {
+      transform: scale(1.02);
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+    button {
+      background: #4facfe;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin-top: 15px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s ease-in-out;
+    }
+    button:hover {
+      background: #00c6ff;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📊 Percentage Calculator</h1>
+    <input type="number" id="value" placeholder="Enter obtained marks / value">
+    <input type="number" id="total" placeholder="Enter total marks / value">
+    <button onclick="calculate()">Calculate</button>
+    <div class="result" id="result">Result will appear here</div>
+  </div>
+
+  <script>
+    function calculate() {
+      let value = document.getElementById("value").value;
+      let total = document.getElementById("total").value;
+      let resultBox = document.getElementById("result");
+
+      if (value === "" || total === "" || total == 0) {
+        resultBox.innerHTML = "⚠️ Please enter valid numbers.";
+        return;
+      }
+
+      let percentage = (value / total) * 100;
+      resultBox.innerHTML = "✅ Percentage: " + percentage.toFixed(2) + "%";
+    }
+  </script>
+</body>
+</html>
